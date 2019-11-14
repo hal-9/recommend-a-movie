@@ -1,4 +1,3 @@
-
 // import filesystem for node to work on files
 const fs = require('fs');
 // make fetch requests through node possible
@@ -20,27 +19,12 @@ const letterboxdLimiter = new Bottleneck({
 
 let promisesArray = [];
 // read json file and put it in a variable
-let rawData = fs.readFileSync('data.json');
+let rawData = fs.readFileSync('../data.json');
 let movies = JSON.parse(rawData);
 
 const missingUrls = {
-  "Kirschblüten - Hanami": "https://letterboxd.com/film/cherry-blossoms/"
+  "Kirschblüten - Hanami": "https://letterboxd.com/film/cherry-blossoms/",
 }
-
-// const getTmdbUrl = (html) => {
-//   const dom = new JSDOM(html);
-//   const link = dom.window.document.querySelector('[data-track-action=TMDb]');
-//   const betaID = link.href.substring(33);
-//   const finalID = betaID.slice(0, betaID.length -1);
-//   movies[index].tmdbID = finalID;
-//   return `https://api.themoviedb.org/3/movie/${finalID}?api_key=0940bdf47236bfccc797ffa5fd1ebe6e`
-// }
-//
-// const letterboxdData = await fetch(urlToFetch);
-// const letterboxdDataHtml = await response.text();
-// const tmdbUrl = getTmdbUrl(letterboxdDataHtml);
-//
-// const foo = await fetch(tmbdUrl
 
 const getMovieData = (movie, index) => {
   const promise = new Promise((resolve, reject) => {
@@ -61,11 +45,15 @@ const getMovieData = (movie, index) => {
         const betaID = link.href.substring(33);
         const finalID = betaID.slice(0, betaID.length -1);
         movies[index].tmdbID = finalID;
-        const tmdbURL = `https://api.themoviedb.org/3/movie/${finalID}?api_key=0940bdf47236bfccc797ffa5fd1ebe6e`
+        const apiKey = 'api_key=0940bdf47236bfccc797ffa5fd1ebe6e';
+
+        let tmdbURL = (link.href.includes('tv'))
+          ? `https://api.themoviedb.org/3/tv/${finalID}?${apiKey}`
+          : `https://api.themoviedb.org/3/movie/${finalID}?${apiKey}`
+
 
         return tmdbLimiter.schedule(() => fetch(tmdbURL)
           .then(response => {
-            console.log('das ist response', response.status);
             return response.json();
           })
           .then(data => {
@@ -81,12 +69,12 @@ const getMovieData = (movie, index) => {
           .catch((error) => {
             console.log(index,movie.Name + " --- ❌");
             console.log(error);
-            reject();
+            resolve();
           })
       }).catch((error) => {
         console.log(index,movie.Name + " --- ❌");
         console.log(error);
-        reject();
+        resolve();
       }));
   });
   // push all promises into a promises array so that we can use Promise.all
