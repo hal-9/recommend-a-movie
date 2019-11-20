@@ -9,7 +9,7 @@
 }
 
 .gridItem {
-  border: 5px solid #E9D0AD;
+  border: 2px solid #E9D0AD;
 }
 
 body {
@@ -40,3 +40,19 @@ h1 {
   background-color: #2F3F42;
   border: 0px;
 }
+
+@media screen and (min-width: 768px) {
+  #grid {
+    grid-template-columns: 320px 320px;
+    padding-left: 30px;
+  }
+  h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #grid {
+    grid-template-columns: 320px 320px 320px;
+    padding-left: 100px;
+  }
