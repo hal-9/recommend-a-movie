@@ -11,17 +11,20 @@ const generateList = (selectedGenre) => {
   console.log(filteredList);
 
   filteredList.forEach((movieData) => {
+    const gridItem = document.createElement('div')
+    gridItem.classList.add('gridItem');
+    const letterboxdLink = document.createElement('a')
+    letterboxdLink.href = movieData.LetterboxdURI;
+    letterboxdLink.target = 'blank';
     let movie = document.createElement('img');
-    let rating = document.createElement('p');
-    const srcUrl = " https://image.tmdb.org/t/p/w200"
+    const srcUrl = " https://image.tmdb.org/t/p/w300"
     const posterPath = movieData.PosterPath;
     const imageAlt = " alt='movie poster'"
     movie.src =  `${srcUrl}${posterPath}`
-    movie.alt = 'movie poster';
-    console.log(movie.innerHTML);
-    rating.innerText = movieData.Rating;
-    grid.appendChild(movie);
-    grid.appendChild(rating);
+    movie.alt = `${movieData.Name} movie poster`;
+    grid.appendChild(gridItem);
+    gridItem.appendChild(letterboxdLink);
+    letterboxdLink.appendChild(movie);
   });
 };
 

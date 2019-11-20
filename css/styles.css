@@ -1,8 +1,42 @@
-.movietile {
-  border-style: solid;
-  border-color: black;
-}
 
 #grid {
+  margin-top: 20px;
+  margin-left: 20px;
   display: grid;
+  grid-template-columns: 320px;
+  grid-gap: 10px;
+  text-align: center;
+}
+
+.gridItem {
+  border: 5px solid #E9D0AD;
+}
+
+body {
+  background-color: #2F3F42;
+}
+
+#name {
+  margin: 0px;
+  color: #EBBA4B;
+}
+
+h1 {
+  margin: 0px;
+  font-size: 40px;
+  color: #E9D0AD;
+  font-family: 'Pontano Sans', sans-serif;
+  text-transform: uppercase;
+}
+
+#genreSelector {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 40px;
+  font-family: 'Pontano Sans', sans-serif;
+  text-transform: uppercase;
+  color: #BF312D;
+  background-color: #2F3F42;
+  border: 0px;
 }
