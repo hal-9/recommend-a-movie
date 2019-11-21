@@ -1,7 +1,3 @@
-# recommend-a-movie
-a basic movie recommendation tool
-
-
 # Recommend a Movie
 **a basic movie recommendation tool based off of my ratings on letterboxd.com**
 
