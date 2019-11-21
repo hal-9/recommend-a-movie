@@ -44,7 +44,7 @@ h1 {
 
 @media screen and (min-width: 768px) {
   #grid {
-    grid-template-columns: 320px 320px;
+    grid-template-columns: 304px 304px;
     padding-left: 30px;
   }
   h1 {
@@ -54,7 +54,7 @@ h1 {
 
 @media screen and (min-width: 1280px) {
   #grid {
-    grid-template-columns: 320px 320px 320px;
+    grid-template-columns: 304px 304px 304px;
     padding-left: 100px;
   }
 }
