@@ -38,9 +38,32 @@ const generateList = (selectedGenre) => {
   }
 };
 
-
 genreSelector.addEventListener('change', (event) => {
   grid.innerHTML = '';
   const selectedGenre = event.target.value;
+  let helperWord = document.querySelector('.helper-word');
+  let movie = document.querySelector('.movie');
+
+  switch(event.target.value) {
+    case 'Action':
+    case 'Animation':
+      helperWord.innerHTML = 'an';
+      break;
+    
+    case 'Favorite':
+      console.log('wir sind in favorites switch')
+      console.log('helperWord.innerHTML vorher = ' + helperWord.innerHTML);
+      helperWord.innerHTML = 'his';
+      movie.innerHTML = 'movies';
+      console.log('helperWord.innerHTML nachher = ' + helperWord.innerHTML)
+      break;
+
+    default:
+      helperWord.innerHTML = 'a';
+      movie.innerHTML = 'MOVIE';
+  }
+
   generateList(selectedGenre);
 })
+
+
