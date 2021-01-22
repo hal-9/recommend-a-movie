@@ -93,7 +93,6 @@ const getMovieData = (movie, index) => {
   // push all promises into a promises array so that we can use Promise.all
   // this prevents the completeData file to be written before its properly filled
   promisesArray.push(promise);
-
 };
 
 // loop through all films and get the data we want

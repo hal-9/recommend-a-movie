@@ -2,13 +2,11 @@ const grid = document.querySelector('#grid');
 const genreSelector = document.querySelector('#genreSelector');
 
 const generateList = (selectedGenre) => {
-
   const filteredList = data
-    .filter(movie => movie.Genre.includes(selectedGenre))
+    .filter(movie => movie.Genre[0] === selectedGenre)
     .sort(function(movie1, movie2) {
-      return  movie2.Rating - movie1.Rating;
+      return movie2.Rating - movie1.Rating;
     });
-  console.log(filteredList);
 
   filteredList.forEach((movieData) => {
     const gridItem = document.createElement('div')
@@ -20,7 +18,7 @@ const generateList = (selectedGenre) => {
     const srcUrl = " https://image.tmdb.org/t/p/w300"
     const posterPath = movieData.PosterPath;
     const imageAlt = " alt='movie poster'"
-    movie.src =  `${srcUrl}${posterPath}`
+    movie.src = `${srcUrl}${posterPath}`
     movie.alt = `${movieData.Name} movie poster`;
     grid.appendChild(gridItem);
     gridItem.appendChild(letterboxdLink);

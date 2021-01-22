@@ -1,12 +1,10 @@
-
 #grid {
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 50px;
   display: grid;
-  grid-template-columns: 304px;
-  grid-auto-rows: 455px;
-  grid-gap: 10px;
-  text-align: center;
+  grid-template-columns: 303px 303px 303px 303px;
+  grid-auto-rows: 454px;
+  grid-gap: 15px;
+  align-items: end;
 }
 
 .gridItem {
@@ -28,6 +26,7 @@ h1 {
   color: #E9D0AD;
   font-family: 'Pontano Sans', sans-serif;
   text-transform: uppercase;
+  text-align: center;
 }
 
 #genreSelector {
@@ -43,18 +42,17 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
-  #grid {
+  /* #grid {
     grid-template-columns: 304px 304px;
     padding-left: 30px;
   }
   h1 {
     text-align: center;
-  }
+  } */
 }
 
-@media screen and (min-width: 1280px) {
-  #grid {
-    grid-template-columns: 304px 304px 304px;
-    padding-left: 100px;
-  }
+@media screen and (min-width: 1920px) {
+  /* #grid {
+    grid-template-columns: 303px 303px 303px 303px;
+  } */
 }
