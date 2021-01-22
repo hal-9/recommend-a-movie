@@ -11,8 +11,9 @@ const createMovieEntries = (filteredList) => {
     let movie = document.createElement('img');
     const srcUrl = " https://image.tmdb.org/t/p/w300"
     const posterPath = movieData.PosterPath;
-    const imageAlt = " alt='movie poster'"
-    movie.src = `${srcUrl}${posterPath}`
+    movie.src = (posterPath !== null) 
+    ? `${srcUrl}${posterPath}`
+    : 'https://via.placeholder.com/300x450';
     movie.alt = `${movieData.Name} movie poster`;
     grid.appendChild(gridItem);
     gridItem.appendChild(letterboxdLink);
