@@ -8,7 +8,8 @@ You can either visit the page here https://hal-9.github.io/recommend-a-movie/ or
 ## Features
 
 * the user can select a genre in the header of the page 
-* upon selection, the page displays a grid of all movie posters matching the genre 
+* upon selection, the page displays a grid of all movie posters matching the genre
+* the movies are sorted by highest ratings to lowest, in the favorite category are only movies that have the highest rating
 * all movie posters are external links to the letterboxd page of the movie
 
 ## Code
